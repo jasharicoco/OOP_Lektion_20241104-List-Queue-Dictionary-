@@ -151,10 +151,23 @@
             // Ta bort ett element
             ages.Remove("Konrad");
 
-            foreach (var kvp in ages)
+            foreach (var kvp in ages) //kvp = KeyValuePair<string,int>
             {
                 Console.WriteLine($"{kvp.Key} är {kvp.Value} år gammal.");
             }
+
+            Console.WriteLine($"Det finns {ages.Count} element i vår Dictionary.");
+
+
+            // Anta att vi vill ändra "Anna" till "Annie"
+            if (ages.TryGetValue("Anna", out int age))
+            {
+                ages.Remove("Anna");    // Ta bort den gamla nyckeln
+                ages.Add("Annie", age); // Lägg till den nya nyckeln med samma värde
+            }
+
+
+
         }
     }
 }
